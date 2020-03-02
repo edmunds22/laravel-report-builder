@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sessions as Sessions;
 
 use App\Reporting\ReportBuilder as ReportBuilder;
 
@@ -21,7 +22,7 @@ class Home extends Controller
      * @throws \Exception
      */
     public function index(ReportBuilder $builder){
-        $report = $builder->setType('Session')->build('dummy')->toCollection()->export();
+        $report = $builder->setType('Sessions')->build('dummy')->toCollection()->export();
         dd($report);
     }
 }

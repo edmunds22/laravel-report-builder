@@ -20,17 +20,13 @@ class ReportBuilder
     public function build($source = 'dummy')
     {
         if ($source == 'db-table') {
-            /*
-             * From the DB
-             *
-             * */
             if (!Schema::hasTable($this->type)) {
                 throw new \Exception('Cannot report a non existing table');
             } else {
                 $this->data = DB::table($this->type)->get();
             }
         } elseif ($source == 'eloquent') {
-            $this->data = $this->type::all();
+            $this->data = call_user_func(array('App\\'.$this->type, 'all'));
         } else {
             //build dummy data
             $this->data = [];
