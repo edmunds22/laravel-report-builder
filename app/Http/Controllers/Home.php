@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Sessions as Sessions;
 
 use App\Reporting\ReportBuilder as ReportBuilder;
 
